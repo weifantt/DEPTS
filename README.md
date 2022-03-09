@@ -1,4 +1,4 @@
-# DEPTS (ICLR22)
+# DEPTS
 
 Source code for the paper,
 ["DEPTS: Deep Expansion Learning for Periodic Time Series Forecasting"](https://openreview.net/forum?id=AJAR-JgNw__),
@@ -11,7 +11,7 @@ DEPTS is a customized deep neural network architecture for periodic time series 
 
 ## Dataset
 
-You can download the five benchmarks from [GoogleDrive](https://drive.google.com/file/d/1GYt2chsZLbmJkNG3lb-ytCrI3nuZKDxm/view?usp=sharing). All the datasets are well pre-processed. More details of datasets can be found in the [paper](https://openreview.net/forum?id=AJAR-JgNw__).
+You can download the five benchmarks from [Google Drive](https://drive.google.com/file/d/1GYt2chsZLbmJkNG3lb-ytCrI3nuZKDxm/view?usp=sharing). All the datasets are well pre-processed. More details of datasets can be found in the [paper](https://openreview.net/forum?id=AJAR-JgNw__). After downloading the zip file, please unzip it to the root dir of DEPTS for experiments.
 
 ## Usage
 
