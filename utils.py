@@ -258,7 +258,7 @@ def smape_1_loss(forecast: torch.Tensor, target: torch.Tensor, mask: torch.Tenso
     :param mask: 0/1 mask. Shape: batch, time
     :return: Loss value
     """
-    return 200 * torch.mean(divide_no_nan(torch.abs(forecast - target), forecast.data + target.data) * mask)
+    return 200 * torch.mean(divide_no_nan(torch.abs(forecast - target), forecast.data + target.data + 1e-8) * mask)
 
 
 def smape_2_loss(forecast, target, mask) -> torch.float:
@@ -271,7 +271,7 @@ def smape_2_loss(forecast, target, mask) -> torch.float:
     :return: Loss value
     """
     return 200 * torch.mean(divide_no_nan(torch.abs(forecast - target),
-                                      torch.abs(forecast.data) + torch.abs(target.data)) * mask)
+                                      torch.abs(forecast.data) + torch.abs(target.data) + 1e-8) * mask)
 
 
 def mase_loss(insample: torch.Tensor, freq: int,
@@ -287,7 +287,7 @@ def mase_loss(insample: torch.Tensor, freq: int,
     :return: Loss value
     """
     masep = torch.mean(torch.abs(insample[:, freq:] - insample[:, :-freq]), dim=1)
-    masked_masep_inv = divide_no_nan(mask, masep[:, None])
+    masked_masep_inv = divide_no_nan(mask, masep[:, None] + 1e-8)
     return torch.mean(torch.abs(target - forecast) * masked_masep_inv)
 
 
